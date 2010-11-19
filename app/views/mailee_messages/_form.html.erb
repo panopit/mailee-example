@@ -1,0 +1,62 @@
+<%= form_for(@mailee_message) do |f| %>
+  <% if @mailee_message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mailee_message.errors.count, "error") %> prohibited this mailee_message from being saved:</h2>
+
+      <ul>
+      <% @mailee_message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :subject %><br />
+    <%= f.text_field :subject %>
+  </div>
+  <div class="field">
+    <%= f.label :from_name %><br />
+    <%= f.text_field :from_name %>
+  </div>
+  <div class="field">
+    <%= f.label :from_email %><br />
+    <%= f.text_field :from_email %>
+  </div>
+  
+  <fieldset>
+    <legend>Template ou HTML?</legend>
+    <div class="field">
+      <%= f.label :template_id %><br />
+      <%= f.select :template_id, Mailee::Template.all.map{|t| [t.title, t.id]}, {:include_blank => true} %>
+    </div>
+    <div class="field">
+      <%= f.label :html %><br />
+      <%= f.text_area :html %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Lista ou contatos?</legend>
+    <div class="field">
+      <%= f.label :list_id %><br />
+      <%= f.select :list_id, Mailee::List.all.map{|t| [t.name, t.id]}, {:include_blank => true}  %>
+    </div>
+    <div class="field">
+      <%= f.label :contacts %><br />
+      <%= f.text_area :contacts %>
+    </div>
+  </fieldset>
+
+  <div class="field">
+    <%= f.label :analytics %><br />
+    <%= f.check_box :analytics, :value => true %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

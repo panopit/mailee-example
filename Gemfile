@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 gem 'rails', '3.0.0.beta4'
 gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'mailee'
+gem 'mailee', '0.5.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

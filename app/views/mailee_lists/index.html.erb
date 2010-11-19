@@ -1,0 +1,23 @@
+<h1>Listing mailee_lists</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mailee_lists.each do |mailee_list| %>
+  <tr>
+    <td><%= mailee_list.name %></td>
+    <td><%= link_to 'Show', mailee_list %></td>
+    <td><%= link_to 'Edit', edit_mailee_list_path(mailee_list) %></td>
+    <td><%= link_to 'Destroy', mailee_list, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mailee list', new_mailee_list_path %>

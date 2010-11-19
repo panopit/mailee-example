@@ -1,0 +1,2 @@
+module MaileeMessagesHelper
+end

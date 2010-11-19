@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Status:</b>
+  <%= @mailee_message.human_status %>
+</p>
+
+<% case @mailee_message.status %>
+<% when 1 %>
+  <form method="post" action="/mailee_messages/<%= @mailee_message.id %>/test">
+    <%= token_tag %>
+    <input type="text" name="contact_id" />
+    <input type="submit" value="Testar" />
+  </form>
+  <form method="post" action="/mailee_messages/<%= @mailee_message.id %>/ready">
+    <%= token_tag %>
+    <input type="submit" value="Enviar agora" />
+  </form>
+  #TODO enviar no futuro
+<% when 3 %>
+  <%= image_tag @mailee_message.thumb(:large) %>
+<% end %>
+
+<p>
+  <b>Title:</b>
+  <%= @mailee_message.title %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @mailee_message.subject %>
+</p>
+
+<p>
+  <b>HTML:</b>
+  <%= @mailee_message.html %>
+</p>
+
+<p>
+  <b>List:</b>
+  <%= @mailee_message.list_id %>
+</p>
+
+<p>
+  <b>From:</b>
+  <%= @mailee_message.signature %>
+</p>
+<p>
+  <b>Reply:</b>
+  <%= @mailee_message.reply_email %>
+</p>
+
+<%= link_to 'Edit', edit_mailee_message_path(@mailee_message) %> |
+<%= link_to 'Back', mailee_messages_path %>

@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<% for field in [:name, :company, :description, :address, :phone, :site] %>
+<p>
+  <b><%= field %>:</b>
+  <%= @mailee_list.send(field) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', edit_mailee_list_path(@mailee_list) %> |
+<%= link_to 'Back', mailee_lists_path %>
