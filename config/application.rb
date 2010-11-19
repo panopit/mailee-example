@@ -44,6 +44,3 @@ module MaileeExample
     config.filter_parameters += [:password]
   end
 end
-
-
-Mailee::Config.site = 'http://api.01295d232df4b.gem.mailee.me'
